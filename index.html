@@ -150,8 +150,8 @@ const CONFIG = {
 
   <div class="passage" style="border-left-color:var(--gold);">
     <h3>Here's the plan 👋</h3>
-    <p>Five short sections. First you'll <strong>listen</strong> to a lease-renewal negotiation
-    between a tenant, Elena, and her landlord — then answer a few questions. After that you'll
+    <p>Five short sections. First you'll <strong>watch</strong> a short video about a lease-renewal
+    negotiation — then answer a few questions. After that you'll
     practice <strong>negotiation vocabulary</strong> (rent stabilization, lease renewal, leverage,
     surcharge…) and the <strong>modals of obligation &amp; requirement</strong> we use to state
     boundaries firmly — "landlords <em>are required to</em>…", "you <em>cannot force</em> me to…"
@@ -174,23 +174,20 @@ const CONFIG = {
 <!-- ===================== SCREEN 1 — READING ===================== -->
 <div class="screen" id="s1">
   <div class="progress"><span class="now"></span><span></span><span></span><span></span><span></span></div>
-  <h2><span class="tag">1 · Listen 🎧</span> Comprehension</h2>
-  <div class="intro-note">Listen to the lease-renewal negotiation between Elena and her
-  landlord, Mr. Vance. You can replay it as many times as you like, then answer the questions.</div>
+  <h2><span class="tag">1 · Watch 🎬</span> Comprehension</h2>
+  <div class="intro-note">Watch the video about a lease-renewal negotiation. You can replay it as
+  many times as you like, then answer the questions below.</div>
 
   <div class="passage">
-    <div class="dateline">Listening · The Renewal Negotiation</div>
-    <h3>🎧 Elena &amp; Mr. Vance</h3>
-    <p>A tenant, Elena, meets with her landlord to discuss her lease renewal — a rent increase,
-    a new surcharge, and a pest problem the building has ignored. Press play, listen carefully,
-    then answer the five questions below.</p>
-    <audio class="audioplayer" controls preload="metadata">
-      <source src="https://ponilnhyehnzycspksah.supabase.co/storage/v1/object/public/audio/convhw6-renewal.m4a" type="audio/mp4">
-      Your browser can't play this audio —
-      <a href="https://ponilnhyehnzycspksah.supabase.co/storage/v1/object/public/audio/convhw6-renewal.m4a">tap here to open it</a>.
-    </audio>
-    <p style="margin-top:10px;font-size:.88rem;">🎬 Prefer to watch the video?
-      <a href="https://drive.google.com/file/d/1_NGfBqD37BhQTcDwQviZwAUG89V1NkxI/view?usp=drive_link" target="_blank" rel="noopener">Open it here →</a></p>
+    <div class="dateline">Listening · Lease Renewal</div>
+    <h3>🎬 Negotiating a Lease Renewal</h3>
+    <p>Watch the video about a tenant negotiating a lease renewal — a rent increase, a new
+    surcharge, and building problems. Watch carefully, then answer the five questions below.</p>
+    <div style="position:relative;padding-top:56.25%;margin-top:8px;border-radius:12px;overflow:hidden;background:#000;">
+      <iframe src="https://drive.google.com/file/d/1_NGfBqD37BhQTcDwQviZwAUG89V1NkxI/preview" allow="autoplay" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+    </div>
+    <p style="margin-top:10px;font-size:.88rem;">
+      <a href="https://drive.google.com/file/d/1_NGfBqD37BhQTcDwQviZwAUG89V1NkxI/view?usp=drive_link" target="_blank" rel="noopener">Open the video in a new tab →</a></p>
   </div>
 
   <div id="readingQs"></div>
@@ -232,7 +229,7 @@ const CONFIG = {
     broken and left unlocked for two months, resulting in stolen mail packages.
   </div>
 
-  <textarea id="writingText" placeholder="Property Manager: Here is your lease renewal. The rent is going up 10%, and there is a new parking surcharge.&#10;Tenant: Thank you. However, before I sign, the broken security doors must be repaired. Under our lease, management is required to maintain a secure entrance…"></textarea>
+  <textarea id="writingText" placeholder="Property Manager: Here is your lease renewal. The rent is going up 10%, and there is a new parking surcharge.&#10;Tenant:"></textarea>
   <ul class="checklist">
     <li>A professional Tenant / Property Manager negotiation dialogue</li>
     <li>The Tenant uses <strong>modals of obligation / requirement</strong></li>
@@ -273,10 +270,7 @@ const CONFIG = {
     <p>• Use <strong>modals of obligation / requirement</strong> to reject the unfair terms
     ("you <em>cannot force</em> me…", "you <em>are required to</em>…").<br>
     • Use at least <strong>TWO vocabulary words</strong> from this week's list.</p>
-    <p class="tip" style="margin:6px 0 0;">Try: "Hello, thank you for the notice. However, under
-    city law you <em>are required to</em> give 60 days' notice for this increase, so you
-    <em>cannot force</em> me to sign by tonight. Before any <em>lease renewal</em>, the broken
-    security doors <em>must</em> be repaired…"</p>
+    <p class="tip" style="margin:6px 0 0;">Try: "Hello, thank you for the notice. However, …"</p>
   </div>
 
   <div class="speak-box">
@@ -461,15 +455,15 @@ function checkWriting(){
 
 /* ===================== SECTION 4 — LANGUAGE IN USE (GRAMMAR) ===================== */
 const luBank=[
-  {q:"1. Landlord: If you do not sign this new contract by tonight, I will put the apartment on the market tomorrow. Tenant: With respect, you (1)__________ do that. Under city law, landlords (2)__________ give tenants 30 days' written notice before listing an occupied unit.",
+  {q:"1. Landlord: If you do not sign this new contract by tonight, I will put the apartment on the market tomorrow.<br>Tenant: With respect, you (1)__________ do that. Under city law, landlords (2)__________ give tenants 30 days' written notice before listing an occupied unit.",
    opts:["must not / are required to","cannot force / are required to","ought not / are supposed to","are not required to / cannot force"],answer:0},
-  {q:"2. Tenant: The front gate intercom system has been broken since January. Landlord: I know, but our repair team is currently short-staffed. Tenant: Security features (1)__________ function properly. According to our lease, management (2)__________ maintain a secure entrance.",
+  {q:"2. Tenant: The front gate intercom system has been broken since January.<br>Landlord: I know, but our repair team is currently short-staffed.<br>Tenant: Security features (1)__________ function properly. According to our lease, management (2)__________ maintain a secure entrance.",
    opts:["are required to / cannot force","must / cannot force","are supposed to / is required to","ought not to / are supposed to"],answer:2},
-  {q:"3. Landlord: The new utility fee is a mandatory corporate policy for this renewal. Tenant: If you want me to accept a new fee, you (1)__________ look at my maintenance history first. These leaks (2)__________ be resolved before I agree to any financial changes.",
+  {q:"3. Landlord: The new utility fee is a mandatory corporate policy for this renewal.<br>Tenant: If you want me to accept a new fee, you (1)__________ look at my maintenance history first. These leaks (2)__________ be resolved before I agree to any financial changes.",
    opts:["ought to / must","are required / are supposed to","are supposed to / ought to","must / cannot force"],answer:0},
-  {q:"4. Tenant: My brother is visiting for the summer. Can we add his name to the renewal contract? Landlord: No, under our strict corporate policy, we (1)__________ allow unapproved occupants. He (2)__________ submit a formal background application first.",
+  {q:"4. Tenant: My brother is visiting for the summer. Can we add his name to the renewal contract?<br>Landlord: No, under our strict corporate policy, we (1)__________ allow unapproved occupants. He (2)__________ submit a formal background application first.",
    opts:["cannot force / is supposed to","are not supposed to / ought","are required to / must not","must not / is required to"],answer:3},
-  {q:"5. Landlord: If you want us to repaint the living room, you will have to pay a modern service fee. Tenant: Actually, according to local housing regulations, residents (1)__________ pay for standard updates. Landlords (2)__________ refresh the paint every three years at no extra cost.",
+  {q:"5. Landlord: If you want us to repaint the living room, you will have to pay a modern service fee.<br>Tenant: Actually, according to local housing regulations, residents (1)__________ pay for standard updates. Landlords (2)__________ refresh the paint every three years at no extra cost.",
    opts:["are not supposed to / ought to","must not / are supposed to","are not required to / are required to","cannot force / must not"],answer:2}
 ];
 (function(){
