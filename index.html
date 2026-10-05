@@ -133,7 +133,7 @@ const CONFIG = {
     teacher:      "entry.1451249480"
   },
   CLASSES: [
-    {code:"3091", label:"Conversation — Evening (Mon/Wed 6:30 – 8:00 PM) — Laura Ebel", teacher:"Laura Ebel"}
+    {code:"CONV-MW1830", label:"Conversation — Class 7 · Mon/Wed 6:30 PM · Laura Ebel", teacher:"Laura Ebel"}
   ],
   SESSION_LABEL: "Week 3 - Class 6"
 };
@@ -818,6 +818,43 @@ try{
     }
     if(!inject()){ document.addEventListener("DOMContentLoaded",inject); window.addEventListener("load",inject);
       try{ var mo=new MutationObserver(function(){ if(inject()) mo.disconnect(); }); mo.observe(document.documentElement,{childList:true,subtree:true}); }catch(e){} }
+  }catch(e){}
+})();
+</script>
+<script>
+/* SQA auto-identity (2026-10) — when opened from the portal (logged in), prefill the student's
+   name + class from the URL (?name/?cls/?cnum) so they never type a name or pick a class.
+   Submission still ties to ?sid. Additive + try/catch — never blocks the page. */
+(function(){
+  try{
+    var Q=new URLSearchParams(location.search);
+    var nm=(Q.get('name')||'').trim(), cls=(Q.get('cls')||'').trim(), cnum=(Q.get('cnum')||'').trim();
+    if(!nm && !cls && !cnum) return;
+    function fill(){
+      var nameEl=document.getElementById('studentName');
+      if(nm && nameEl && 'value' in nameEl){
+        nameEl.value=nm; nameEl.readOnly=true; nameEl.style.background='#efeafa';
+        if(!document.getElementById('sqa-id-note')){
+          var n=document.createElement('div'); n.id='sqa-id-note';
+          n.style.cssText='font-size:13px;color:#2f8a5b;margin-top:4px;font-weight:600';
+          n.textContent='✓ Signed in as '+nm;
+          if(nameEl.parentNode) nameEl.parentNode.insertBefore(n, nameEl.nextSibling);
+        }
+      }
+      var selEl=document.getElementById('classSelect')||document.getElementById('studentClass');
+      if(selEl && selEl.tagName==='SELECT'){
+        var opts=selEl.options, pick=-1, real=[];
+        for(var i=0;i<opts.length;i++){ if(!opts[i].value) continue; real.push(i);
+          var v=(opts[i].value||'').toLowerCase(), t=(opts[i].text||'').toLowerCase();
+          if(cls && (v.indexOf(cls.toLowerCase())>=0 || t.indexOf(cls.toLowerCase())>=0)){pick=i;break;}
+          if(cnum && t.indexOf('class '+cnum)>=0){pick=i;break;}
+        }
+        if(pick<0 && real.length===1) pick=real[0];
+        if(pick>=0){ selEl.selectedIndex=pick; selEl.disabled=true; selEl.style.background='#efeafa'; }
+      }
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(fill,80);});
+    else setTimeout(fill,80);
   }catch(e){}
 })();
 </script>
